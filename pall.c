@@ -19,5 +19,6 @@ void pall(stack_t **head, int arg)
 	{
 		printf("%d\n", cursor->n);
 		cursor = cursor->next;
+		i++
 	}
 }
