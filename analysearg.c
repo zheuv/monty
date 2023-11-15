@@ -12,7 +12,7 @@ char* analysearg(char *arg)
     }
     first_instance = arg;
 
-    while (*arg != '\0' && *arg != '\n')
+    while (*arg != '\0')
     {
         if (*arg != ' ')
         {
@@ -21,10 +21,11 @@ char* analysearg(char *arg)
         arg++;
     }
 
-    while (first_instance <= final_instance)
+    if (first_instance != NULL && final_instance != NULL)
     {
-        strncat(argument, first_instance, 1);
-        first_instance++;
+        size_t length = final_instance - first_instance + 1;
+        strncpy(argument, first_instance, length);
+        argument[length] = '\0';
     }
 
     return argument;
