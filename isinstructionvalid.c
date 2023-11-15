@@ -4,7 +4,11 @@
 void IsInstructionValid(char *command, char *arg)
 {
         char *endptr;
-	int intArgument
+	int intArgument;
+	Command commands[] = {
+        {"push", push}
+        };
+	long unsigned int i;
         errno = 0;
         long argument;
         argument = strtol(arg, &endptr, 10);
@@ -17,12 +21,7 @@ void IsInstructionValid(char *command, char *arg)
 
         intArgument = (int)argument;
 
-        Command commands[] = {
-        {"push", push},
-        {"pall", pall},
-        };
 
-	int i;
         for (i = 0; i < sizeof(commands) / sizeof(commands[0]); i++)
         {
                 if (strcmp(commands[i].name, command) == 0)

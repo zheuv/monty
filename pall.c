@@ -3,7 +3,7 @@
 
 
 
-void pall(stack_t **head)
+void pall(stack_t **head, int arg )
 {
 	stack_t *cursor;
 
