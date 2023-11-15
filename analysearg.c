@@ -6,7 +6,7 @@
 
 char* analysearg(char *arg)
 {
-        char argument = malloc(MAX_LINE_LENGTH);
+        char *argument = malloc(MAX_LINE_LENGTH);
         char *first_instance;
 	char *final_instance;
         
