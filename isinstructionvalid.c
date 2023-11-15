@@ -6,7 +6,8 @@ void IsInstructionValid(char *command, char *arg)
         char *endptr;
 	int intArgument;
 	Command commands[] = {
-        {"push", push}
+        {"push", push,
+	{"pall", pall}
         };
 	long argument;
 	long unsigned int i;

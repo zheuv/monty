@@ -31,7 +31,7 @@ char* analysearg(char *arg);
 void read(char *filepath);
 void IsInstructionValid(char *command, char *arg);
 void push(stack_t **head, int arg);
-void pall(stack_t **head);
+void pall(stack_t **head, int arg);
 
 #endif /* MONTY_H */
 
