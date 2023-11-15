@@ -19,6 +19,8 @@ void read(char *filepath)
     {
         char *token = line;
 	i++;
+	memset(command, 0, sizeof(char) * 5);
+        argument = NULL;
 
         while ((*token != '\0') && (*token == ' '))
         {
