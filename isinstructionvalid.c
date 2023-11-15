@@ -8,9 +8,9 @@ void IsInstructionValid(char *command, char *arg)
 	Command commands[] = {
         {"push", push}
         };
+	long argument;
 	long unsigned int i;
         errno = 0;
-        long argument;
         argument = strtol(arg, &endptr, 10);
 
         if ((*endptr != '\0' || (argument == LONG_MIN || argument == LONG_MAX)) && (errno == ERANGE))
