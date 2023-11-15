@@ -8,14 +8,6 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	char *filepath = argv[1];
-	char command = read(*filepath);
-	while (commands != NULL)
-	{
-		if (commands == command)
-			e = 1;	
-		commands++;
-	}
-	if (e = 0)
-	{
-		fprintf(stderr, "L: unknown instruction <opcode>
-		
+	read(*filepath);
+	return;
+}	
