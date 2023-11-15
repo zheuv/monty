@@ -7,15 +7,14 @@ void IsInstructionValid(char *command, char *arg)
         errno = 0;
         long argument;
         argument = strtol(arg, &endptr, 10);
+	int intArgument;
 
-
-        if ((*endptr != '\0' || (argument == LONG_MIN || argument == LONG_MAX) && (errno == ERANGE))
+        if ((*endptr != '\0' || (argument == LONG_MIN || argument == LONG_MAX)) && (errno == ERANGE))
         {
                 fprintf(stderr, "Error: Invalid argument %s\n", arg);
                 return;
         }
 
-        int intArgument;
         intArgument = (int)argument;
 
         Command commands[] = {

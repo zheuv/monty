@@ -7,12 +7,13 @@
 char* analysearg(char *arg)
 {
         char argument[MAX_LINE_LENGTH];
-        char *final_instance;
-        while (*arg == ' ')
+        char *first_instance;
+	char *final_instance;
+        
+	while (*arg == ' ')
         {
                 arg++;
         }
-        char *first_instance;
 	first_instance = arg;
 
         while (*arg != '\0')
@@ -21,7 +22,7 @@ char* analysearg(char *arg)
                 {
                         final_instance = arg;
                 }
-                *arg++;
+                arg++;
         }
         while (first_instance != final_instance)
         {
@@ -30,7 +31,7 @@ char* analysearg(char *arg)
         }
         strncat(argument, final_instance, 1);
         argument[-1] = '\0';
-        return *argument;
+        return argument;
 }
 
 
