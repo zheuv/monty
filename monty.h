@@ -9,7 +9,7 @@
 
 #define MAX_LINE_LENGTH 1024
 
-// Stack structure
+
 typedef struct stack_s
 {
     int n;
@@ -17,17 +17,16 @@ typedef struct stack_s
     struct stack_s *next;
 } stack_t;
 
-// Command structure
 typedef struct
 {
     char *name;
     void (*function)(stack_t **, int);
 } Command;
 
-// Global variable for the head of the stack
+
 extern stack_t *head;
 
-// Function prototypes
+
 char* analysearg(char *arg);
 void read(char *filepath);
 void IsInstructionValid(char *command, char *arg);

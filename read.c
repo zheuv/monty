@@ -5,21 +5,22 @@
 
 void read(char *filepath)
 {
-	char argument[MAX_LINE_LENGTH - sizeof(command)];
 	char *command = malloc(sizeof(char) * 5);
+	char argument[MAX_LINE_LENGTH - sizeof(command)];
+
 
 	FILE filecontent = fopen(filepath, "r");
 	if (filecontent == NULL) 
 	{ 
-		fprintf(stderr, "Error: Can't open file %s\n", filePath);
-		return 1;
+		fprintf(stderr, "Error: Can't open file %s\n", filecontent);
+		return;
 	}
 	
 	char line[MAX_LINE_LENGTH];
 	while (fgets(line, sizeof(line), filecontent) != NULL)
 	{
 		char *token = line;
-		while (*token != '\0' and *token = ' ')
+		while ((*token != '\0') && (*token = ' '))
 		{
 			*token++;
 		}
@@ -31,13 +32,13 @@ void read(char *filepath)
 			}
 			else
 			{
-				argument = analysearg(*token);
+				argument = analysearg(**token);
 				break;
 			}
 			token++;
 		}
 		command[4] = '\0';
-		IsInstructionValid(*command, *argument);
+		IsInstructionValid(**command, *argument);
 	}
 	free(command);
 	fclose(filecontent);
