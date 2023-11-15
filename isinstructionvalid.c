@@ -4,10 +4,10 @@
 void IsInstructionValid(char *command, char *arg)
 {
         char *endptr;
+	int intArgument
         errno = 0;
         long argument;
         argument = strtol(arg, &endptr, 10);
-	int intArgument;
 
         if ((*endptr != '\0' || (argument == LONG_MIN || argument == LONG_MAX)) && (errno == ERANGE))
         {
@@ -27,7 +27,7 @@ void IsInstructionValid(char *command, char *arg)
         {
                 if (strcmp(commands[i].name, command) == 0)
                 {
-                        commands[i].function(*head,intArgument);
+                        commands[i].function(&head,intArgument);
                         return;
                 }
         }

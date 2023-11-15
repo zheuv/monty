@@ -12,5 +12,5 @@ int main(int argc, char *argv[])
 	}
 	filepath = argv[1];
 	read(filepath);
-	return;
+	return 1;
 }	

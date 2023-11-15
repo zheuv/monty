@@ -5,12 +5,14 @@
 
 void pall(stack_t **head)
 {
+	stack_t *cursor;
+
 	if (*head == NULL)
 	{
 		fprintf(stderr,"empty stack");
 		return;
 	}
-	stack_t *cursor;
+
 	cursor = *head;
 
 	while (cursor != NULL)

@@ -3,7 +3,8 @@
 void read(char *filepath)
 {
     char *command = malloc(sizeof(char) * 5);
-    char argument[MAX_LINE_LENGTH - sizeof(command)];
+    char argument = maaloc(MAX_LINE_LENGTH - sizeof(command));
+    char line[MAX_LINE_LENGTH];
 
     FILE* filecontent = fopen(filepath, "r");
     if (filecontent == NULL)
@@ -12,7 +13,7 @@ void read(char *filepath)
         return;
     }
 
-    char line[MAX_LINE_LENGTH];
+    
     while (fgets(line, sizeof(line), filecontent) != NULL)
     {
         char *token = line;
