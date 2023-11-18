@@ -11,8 +11,8 @@ int read(char *filepath) {
 
 
     if (file == NULL) {
-        perror("Error opening file");
-        return 1;
+        fprintf(stderr, "Error: Can't open file %s\n", fname);
+	exit(EXIT_FAILURE);
     }
 
     while ((read = getline(&line, &len, file)) != -1) {
