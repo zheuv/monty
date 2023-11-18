@@ -36,9 +36,27 @@ int read(char *filepath) {
         {
                 printf("invalid argument in line %d\n", num_line);
         }
+	else if (strcmp("push", command) == 0)
+	{
+		if (argument == NULL)
+		{
+			printf("where is the argument");
+		}
+		else
+		{
+			whenpush(command, argument);
+		}
+	}
         else
         {
-                IsInstructionValid(command, argument);
+		if argument != NULL
+		{
+			printf("you shall not use an argument here");
+		}
+		else
+		{	
+			IsInstructionValid(command);
+		}
         }
     }
 

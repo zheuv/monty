@@ -3,10 +3,9 @@
 
 
 
-void pall(stack_t **head, int arg)
+void pall(stack_t **head)
 {
 	stack_t *cursor;
-	int i;
 	if (*head == NULL)
 	{
 		fprintf(stderr,"empty stack");
@@ -14,11 +13,9 @@ void pall(stack_t **head, int arg)
 	}
 
 	cursor = *head;
-	i = arg;
 	while (cursor != NULL)
 	{
 		printf("%d\n", cursor->n);
 		cursor = cursor->next;
-		i++;
 	}
 }
