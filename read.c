@@ -32,7 +32,11 @@ int read(char *filepath) {
             token = strtok(NULL, " \t\n");
         }
         num_line++;
-        if (token != NULL)
+	if (command == NULL)
+	{
+		printf("no instruction");
+	}
+	else if (token != NULL)
         {
                 printf("invalid argument in line %d\n", num_line);
         }
