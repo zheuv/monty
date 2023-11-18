@@ -49,7 +49,7 @@ int read(char *filepath) {
 	}
         else
         {
-		if argument != NULL
+		if (argument != NULL)
 		{
 			printf("you shall not use an argument here");
 		}

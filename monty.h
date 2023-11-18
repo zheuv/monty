@@ -20,7 +20,7 @@ typedef struct stack_s
 typedef struct
 {
     char *name;
-    void (*function)(stack_t **, int);
+    void (*function)(stack_t **);
 } Command;
 
 
