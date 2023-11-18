@@ -6,6 +6,8 @@
 #include <string.h>
 #include <errno.h>
 #include <limits.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 #define MAX_LINE_LENGTH 1024
 
@@ -31,6 +33,6 @@ void whenpush(char *command, char *arg, int line_number);
 void IsInstructionValid(char *command, int line_number);
 void push(stack_t **head, int arg);
 void pall(stack_t **head);
-int isargint(char *argument);
+bool isargint(char *argument);
 #endif /* MONTY_H */
 

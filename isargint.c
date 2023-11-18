@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <stdbool.h>
-#include <ctype.h>
 
 bool isargint(char *argument)
 {
