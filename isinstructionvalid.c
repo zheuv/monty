@@ -18,6 +18,7 @@ void IsInstructionValid(char *command, int line_number)
                 }
         }
 
-        printf("L %d: unknown instruction %s", line_number, command);
+        fprintf(stderr,"L%d: unknown instruction %s\n", line_number, command);
+	exit(EXIT_FAILURE);
 }
 

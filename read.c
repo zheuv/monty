@@ -11,7 +11,7 @@ int read(char *filepath) {
 
 
     if (file == NULL) {
-        fprintf(stderr, "Error: Can't open file %s\n", fname);
+        fprintf(stderr, "Error: Can't open file %s\n", filepath);
 	exit(EXIT_FAILURE);
     }
 
@@ -38,14 +38,14 @@ int read(char *filepath) {
 	}
 	else if (token != NULL)
         {
-                printf("L %d: usage: push integer", num_line);
+                fprintf(stderr,"L%d: usage: push integer\n", num_line);
 		exit(EXIT_FAILURE);
         }
 	else if (strcmp("push", command) == 0)
 	{
 		if (argument == NULL)
 		{
-			printf("L %d: usage: push integer", num_line);
+			fprintf(stderr,"L%d: usage: push integer\n", num_line);
 			exit(EXIT_FAILURE);
 		}
 		else
