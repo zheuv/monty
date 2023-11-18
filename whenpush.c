@@ -1,7 +1,7 @@
 #include "monty.h"
 
 
-void whenpush(char *command, char *arg, int line_number)
+void whenpush(char *arg, int line_number)
 {
         int intArgument;
 

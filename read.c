@@ -5,15 +5,15 @@ int read(char *filepath) {
     char* command;
     char* argument;
     int num_line = 0;
+    char* line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
 
     if (file == NULL) {
         perror("Error opening file");
         return 1;
     }
-
-    char* line = NULL;
-    size_t len = 0;
-    ssize_t read;
 
     while ((read = getline(&line, &len, file)) != -1) {
         char* token = strtok(line, " \t\n");
@@ -50,7 +50,7 @@ int read(char *filepath) {
 		}
 		else
 		{
-			whenpush(command, argument, num_line);
+			whenpush(argument, num_line);
 		}
 	}
         else
