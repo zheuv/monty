@@ -1,14 +1,14 @@
 #include "monty.h"
 
 
-void whenpush(char *command, char *arg)
+void whenpush(char *command, char *arg, int line_number)
 {
         int intArgument;
 
         if (!isargint(arg))
         {
-                fprintf(stderr, "Error: Invalid argument %s\n", arg);
-                return;
+                fprintf("L %d: usage: push integer", line_number);
+                exit(EXIT_FAILURE);
         }
 
         intArgument = atoi(arg);

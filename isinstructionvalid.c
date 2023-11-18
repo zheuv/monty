@@ -1,7 +1,7 @@
 #include "monty.h"
 
 
-void IsInstructionValid(char *command)
+void IsInstructionValid(char *command, int line_number)
 {
 	Command commands[] = {
 	{"pall", pall}
@@ -18,6 +18,6 @@ void IsInstructionValid(char *command)
                 }
         }
 
-        fprintf(stderr, "Error: Invalid command %s\n", command);
+        printf("L %d: unknown instruction %s", line_number, command);
 }
 

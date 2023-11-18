@@ -27,8 +27,8 @@ typedef struct
 extern stack_t *head;
 
 int  read(char *filepath);
-void whenpush(char *command, char *arg);
-void IsInstructionValid(char *command);
+void whenpush(char *command, char *arg, int line_number);
+void IsInstructionValid(char *command, int line_number);
 void push(stack_t **head, int arg);
 void pall(stack_t **head);
 int isargint(char *argument);

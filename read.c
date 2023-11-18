@@ -44,23 +44,17 @@ int read(char *filepath) {
 	{
 		if (argument == NULL)
 		{
-			printf("where is the argument");
+			printf("L %d: usage: push integer", num_line);
+			exit(EXIT_FAILURE);
 		}
 		else
 		{
-			whenpush(command, argument);
+			whenpush(command, argument, num_line);
 		}
 	}
         else
         {
-		if (argument != NULL)
-		{
-			printf("you shall not use an argument here");
-		}
-		else
-		{	
-			IsInstructionValid(command);
-		}
+		IsInstructionValid(command, num_line);
         }
     }
 
