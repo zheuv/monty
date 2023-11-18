@@ -32,18 +32,13 @@ int read(char *filepath) {
             token = strtok(NULL, " \t\n");
         }
         num_line++;
-	if (command == NULL)
+	if ((command == NULL) || (command[0] == '#'))
 	{
 		continue;
 	}
-	else if (token != NULL)
-        {
-                fprintf(stderr,"L%d: usage: push integer\n", num_line);
-		exit(EXIT_FAILURE);
-        }
 	else if (strcmp("push", command) == 0)
 	{
-		if (argument == NULL)
+		if ((argument == NULL) || (token != NULL))
 		{
 			fprintf(stderr,"L%d: usage: push integer\n", num_line);
 			exit(EXIT_FAILURE);
