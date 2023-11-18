@@ -26,12 +26,10 @@ typedef struct
 
 extern stack_t *head;
 
-
-char* analysearg(char *arg);
-void read(char *filepath);
+int  read(char *filepath);
 void IsInstructionValid(char *command, char *arg);
 void push(stack_t **head, int arg);
 void pall(stack_t **head, int arg);
-
+int isargint(char *argument);
 #endif /* MONTY_H */
 
