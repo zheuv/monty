@@ -1,49 +1,50 @@
 #include "monty.h"
 
-void read(char *filepath)
-{
-    char *command = malloc(sizeof(char) * 5);
-    char *argument;
-    char line[MAX_LINE_LENGTH];
-    int i;
+int read(char *filepath) {
+    FILE* file = fopen(filepath, "r");
+    char* command;
+    char* argument;
+    int num_line = 0;
 
-    FILE* filecontent = fopen(filepath, "r");
-    if (filecontent == NULL)
-    {
-        fprintf(stderr, "Error: Can't open file %s\n", filepath);
-        return;
+    if (file == NULL) {
+        perror("Error opening file");
+        return 1;
     }
 
-    i = 0;
-    while (fgets(line, sizeof(line), filecontent) != NULL)
-    {
-        char *token = line;
-	i++;
-	memset(command, 0, sizeof(char) * 5);
+    char* line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    while ((read = getline(&line, &len, file)) != -1) {
+        char* token = strtok(line, " \t\n");
+        command = NULL;
         argument = NULL;
 
-        while ((*token != '\0') && (*token == ' '))
-        {
-            token++;
-        }
-        while (*token != '\0')
-        {
-            if (strlen(command) + 1 <= (sizeof(command) - sizeof(char)))
-            {
-                strncat(command, token, 1);
-            }
-            else
-            {
-                argument = analysearg(token);
+        while  (token != NULL) {
+            if (command == NULL) {
+                command = token;
+            } else if (argument == NULL) {
+                argument = token;
+                token = strtok(NULL, " \t\n");
                 break;
             }
-            token++;
-        }
-        command[4] = '\0';
-        IsInstructionValid(command, argument);
-    }
-    free(command);
-    fclose(filecontent);
-    return;
-}
 
+            token = strtok(NULL, " \t\n");
+        }
+        num_line++;
+        if (token != NULL)
+        {
+                printf("invalid argument in line %d\n", num_line);
+        }
+        else
+        {
+                IsInstructionValid(command, argument);
+        }
+    }
+
+
+    free(line);
+    fclose(file);
+
+    return 0;
+}

@@ -3,24 +3,19 @@
 
 void IsInstructionValid(char *command, char *arg)
 {
-        char *endptr;
-	int intArgument;
 	Command commands[] = {
         {"push", push},
 	{"pall", pall}
         };
-	long argument;
 	long unsigned int i;
-        errno = 0;
-        argument = strtol(arg, &endptr, 10);
 
-        if ((*endptr != '\0' || (argument == LONG_MIN || argument == LONG_MAX)) && (errno == ERANGE))
+        if (!isargint(argument))
         {
                 fprintf(stderr, "Error: Invalid argument %s\n", arg);
                 return;
         }
 
-        intArgument = (int)argument;
+        intArgument = atoi(argument);
 
 
         for (i = 0; i < sizeof(commands) / sizeof(commands[0]); i++)
