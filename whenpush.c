@@ -4,7 +4,6 @@
 void whenpush(char *command, char *arg)
 {
         int intArgument;
-        long unsigned int i;
 
         if (!isargint(arg))
         {

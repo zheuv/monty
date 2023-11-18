@@ -1,7 +1,7 @@
 #include "monty.h"
 #include <ctype.h>
 
-int isargint(char *argument)
+bool isargint(char *argument)
 {
 	if (*argument == '-')
 		argument++;
@@ -14,8 +14,8 @@ int isargint(char *argument)
 		}
 		else 
 		{
-			return -1;
+			return false;
 		}
 	}
-	return 1;
+	return true;
 }
