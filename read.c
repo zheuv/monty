@@ -4,7 +4,7 @@ int read(char *filepath) {
     FILE* file = fopen(filepath, "r");
     char* command;
     char* argument;
-    int num_line = 0;
+    unsigned int num_line = 0;
     char* line = NULL;
     size_t len = 0;
     ssize_t read;

@@ -19,20 +19,19 @@ typedef struct stack_s
     struct stack_s *next;
 } stack_t;
 
-typedef struct
+typedef struct instruction_s
 {
-    char *name;
-    void (*function)(stack_t **);
-} Command;
-
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
 
 extern stack_t *head;
 
 int  read(char *filepath);
 void whenpush(char *arg, int line_number);
-void IsInstructionValid(char *command, int line_number);
+void IsInstructionValid(char *command, unsigned int line_number);
 void push(stack_t **head, int arg);
-void pall(stack_t **head);
+void pall(stack_t **head, unsigned int line_number);
 bool isargint(char *argument);
 #endif /* MONTY_H */
 

@@ -1,9 +1,9 @@
 #include "monty.h"
 
 
-void IsInstructionValid(char *command, int line_number)
+void IsInstructionValid(char *command,unsigned int line_number)
 {
-	Command commands[] = {
+	instruction_t commands[] = {
 	{"pall", pall}
         };
 	long unsigned int i;
@@ -11,9 +11,9 @@ void IsInstructionValid(char *command, int line_number)
 
         for (i = 0; i < sizeof(commands) / sizeof(commands[0]); i++)
         {
-                if (strcmp(commands[i].name, command) == 0)
+                if (strcmp(commands[i].opcode, command) == 0)
                 {
-                        commands[i].function(&head);
+                        commands[i].f(&head, line_number);
                         return;
                 }
         }

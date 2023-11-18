@@ -3,14 +3,11 @@
 
 
 
-void pall(stack_t **head)
+void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *cursor;
-	if (*head == NULL)
-	{
-		fprintf(stderr,"empty stack");
-		return;
-	}
+	(void)line_number;
+
 
 	cursor = *head;
 	while (cursor != NULL)
