@@ -38,7 +38,8 @@ int read(char *filepath) {
 	}
 	else if (token != NULL)
         {
-                printf("invalid argument in line %d\n", num_line);
+                printf("L %d: usage: push integer", num_line);
+		exit(EXIT_FAILURE);
         }
 	else if (strcmp("push", command) == 0)
 	{

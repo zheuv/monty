@@ -7,7 +7,7 @@ void whenpush(char *command, char *arg, int line_number)
 
         if (!isargint(arg))
         {
-                fprintf("L %d: usage: push integer", line_number);
+                printf("L %d: usage: push integer", line_number);
                 exit(EXIT_FAILURE);
         }
 
