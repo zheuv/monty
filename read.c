@@ -34,7 +34,7 @@ int read(char *filepath) {
         num_line++;
 	if (command == NULL)
 	{
-		printf("no instruction");
+		continue;
 	}
 	else if (token != NULL)
         {
