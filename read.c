@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 int read(char *filepath) {
     FILE* file = fopen(filepath, "r");
